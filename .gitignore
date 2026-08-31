@@ -1,0 +1,167 @@
+# ============================================
+# Entorno virtual de Python
+# ============================================
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ============================================
+# Archivos de Python
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# ============================================
+# Distribucion / Packaging
+# ============================================
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+sdist/
+wheels/
+MANIFEST
+
+# ============================================
+# Archivos de configuracion de IDEs y editores
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# Archivos de sistema operativo
+# ============================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.lnk
+*.tmp
+*.bak
+*.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+
+# ============================================
+# Entornos de-testing y cobertura
+# ============================================
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ============================================
+# Archivos de Jupyter Notebook
+# ============================================
+.ipynb_checkpoints/
+
+# ============================================
+# Archivos de Streamlit
+# ============================================
+.streamlit/secrets.toml
+
+# ============================================
+# Archivos de secrets y variables de entorno
+# ============================================
+.env
+.env.*
+*.env
+secrets.toml
+
+# ============================================
+# Archivos de Docker
+# ============================================
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# ============================================
+# Archivos de CI/CD
+# ============================================
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+
+# ============================================
+# Archivos temporales y de cache
+# ============================================
+*.bak
+*.cache
+*.swp
+*.swo
+*~
+.cache/
+tmp/
+temp/
+
+# ============================================
+# Archivos de logging
+# ============================================
+*.log
+logs/
+
+# ============================================
+# Archivos de base de datos
+# ============================================
+*.sqlite
+*.db
+*.sqlite3
+
+# ============================================
+# Archivos de despliegue
+# ============================================
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ============================================
+# PyInstaller
+# ============================================
+*.manifest
+*.spec
+
+# ============================================
+# pyenv
+# ============================================
+.python-version
+
+# ============================================
+# pipenv
+# ============================================
+Pipfile
+Pipfile.lock
+
+# ============================================
+# pdm
+# ============================================
+.pdm.toml
+.pdm-python
+.pdm-build/
