@@ -23,7 +23,7 @@ Generador de codigos QR profesionales con estilo, construido con Streamlit. Perm
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/TU_USUARIO/generador_QR_Streamlit.git
+git clone https://github.com/ssnkcode/creator_QR.git
 cd generador_QR_Streamlit
 
 # Crear entorno virtual
