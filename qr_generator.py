@@ -135,7 +135,61 @@ def is_valid_url(url):
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
     return pattern.match(url) is not None
 
+def get_credentials():
+    """Devuelve usuario y contraseña desde st.secrets,
+    con valores por defecto si no están configurados."""
+    default_user = "usuario"
+    default_pwd = "usuario321"
+    try:
+        user = st.secrets["login"]["usuario"]
+        pwd = st.secrets["login"]["password"]
+    except Exception:
+        user = default_user
+        pwd = default_pwd
+    return user, pwd
+
+def check_login():
+    """Muestra el formulario de login y devuelve True si las credenciales son válidas."""
+    st.markdown(
+        '<div class="main-header"><h1>🔲 Generador QR Pro</h1>'
+        '<p>Inicia sesión para continuar</p></div>',
+        unsafe_allow_html=True
+    )
+
+    with st.container():
+        st.markdown("### 🔐 Acceso restringido")
+        st.markdown(
+            "Esta aplicación requiere autenticación. Ingresa tus credenciales.",
+            unsafe_allow_html=True
+        )
+        login_user = st.text_input("👤 Usuario:", key="login_user")
+        login_pwd = st.text_input("🔑 Contraseña:", type="password", key="login_pwd")
+
+        if st.button("🚀 Iniciar sesión", use_container_width=True):
+            user, pwd = get_credentials()
+            if login_user == user and login_pwd == pwd:
+                st.session_state["autenticado"] = True
+                st.rerun()
+            else:
+                st.error("❌ Usuario o contraseña incorrectos")
+
+    # Footer del login
+    st.markdown("---")
+    st.markdown(
+        '<p style="text-align: center; color: #666; font-size: 0.8rem;">'
+        '© 2026 Todos los derechos reservados SSNKcode</p>',
+        unsafe_allow_html=True
+    )
+    return False
+
 def main():
+    # Proteger la app con login
+    if "autenticado" not in st.session_state:
+        st.session_state["autenticado"] = False
+    if not st.session_state["autenticado"]:
+        check_login()
+        return
+
     # Título principal
     st.markdown('<div class="main-header"><h1>🔲 Generador QR Pro</h1><p>Crea códigos QR profesionales con estilo</p></div>', unsafe_allow_html=True)
     
@@ -150,6 +204,10 @@ def main():
             ["📝 Texto plano", "🌐 URL", "💬 WhatsApp", "📶 WiFi"],
             index=0
         )
+        st.markdown("---")
+        if st.button("🚪 Cerrar sesión"):
+            st.session_state["autenticado"] = False
+            st.rerun()
     
     # Área principal
     st.markdown("### 📝 Datos del código QR")
@@ -250,8 +308,7 @@ def main():
     st.markdown("---")
     st.markdown(
         '<p style="text-align: center; color: #666; font-size: 0.8rem;">'
-        'Desarrollado con ❤️ usando Streamlit | Versión 1.0'
-        '</p>',
+        '© 2026 Todos los derechos reservados SSNKcode</p>',
         unsafe_allow_html=True
     )
 
